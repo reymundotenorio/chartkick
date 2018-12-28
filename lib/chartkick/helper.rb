@@ -81,7 +81,6 @@ module Chartkick
     })();
     
   $(document).on("turbolinks:load", function(){
-  createChart;
   createChart();
   });
 
