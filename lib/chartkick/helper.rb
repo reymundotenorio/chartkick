@@ -83,10 +83,6 @@ $(document).on("turbolinks:load", function(){
     }
   })();
       
-  $(document).on("turbolinks:load", function(){
-    #{createjs}
-  });
-
 </script>
 JS
       else
@@ -94,7 +90,7 @@ JS
 <script type="text/javascript"#{nonce_html}>
 
 $(document).on("turbolinks:load", function(){
-  #{createjs}
+alert("Hi");
 });
 
 </script>
