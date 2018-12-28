@@ -68,17 +68,17 @@ module Chartkick
         js = <<JS
 <script type="text/javascript"#{nonce_html}>
 
-  $(document).on("turbolinks:load", function(){
- var createChart = function() { #{createjs} };
+  (function() {
+    var createChart = function() { #{createjs} };
     if (window.addEventListener) {
-      window.addEventListener("load", createChart, true);
+      window.addEventListener("turbolinks:load", createChart, { once: true });
     } else if (window.attachEvent) {
       window.attachEvent("onload", createChart);
     } else {
     createChart();
     }
-  });
-      
+  })();
+  
 </script>
 JS
       else
@@ -86,7 +86,7 @@ JS
 <script type="text/javascript"#{nonce_html}>
 
 $(document).on("turbolinks:load", function(){
-#{createjs}
+  #{createjs}
 });
 
 </script>
