@@ -68,6 +68,21 @@ module Chartkick
         js = <<JS
 <script type="text/javascript"#{nonce_html}>
 
+  (function() {
+    var createChart = function() { #{createjs} };
+    if (window.addEventListener) {
+      window.addEventListener("load", createChart, true);
+    } else if (window.attachEvent) {
+      window.attachEvent("onload", createChart);
+    } else {
+     // createChart();
+      
+$(document).on("turbolinks:load", function(){
+    #{createjs}
+  });
+    }
+  })();
+      
   $(document).on("turbolinks:load", function(){
     #{createjs}
   });
