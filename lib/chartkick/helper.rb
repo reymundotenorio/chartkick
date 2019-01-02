@@ -79,15 +79,19 @@ module Chartkick
     }
   })();
   
+  $(document).on("turbolinks:load", function(){
+    #{createjs}
+  });
+  
 </script>
 JS
       else
         js = <<JS
 <script type="text/javascript"#{nonce_html}>
 
-//$(document).on("turbolinks:load", function(){
-  #{createjs}
-//});
+  $(document).on("turbolinks:load", function(){
+    #{createjs}
+  });
 
 </script>
 JS
